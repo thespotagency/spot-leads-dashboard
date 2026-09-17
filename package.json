@@ -1,0 +1,29 @@
+{
+  "name": "spot-leads-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thespotagency/spot-leads-dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/thespotagency/spot-leads-dashboard/issues"
+  },
+  "homepage": "https://github.com/thespotagency/spot-leads-dashboard#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
+    "next": "^16.3.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}
