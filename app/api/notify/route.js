@@ -22,11 +22,19 @@ export async function POST(req) {
       'Budget: ' + (body.monthly_budget || '-') + '\n' +
       'Message: ' + (body.message || '-');
 
-    await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+    const tgRes = await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id: chatId, text }),
     });
+    const tgData = await tgRes.json();
+
+    if (!tgData.ok) {
+      return new Response(JSON.stringify({ error: 'Telegram API error', details: tgData }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', ...corsHeaders() },
+      });
+    }
 
     return new Response(JSON.stringify({ ok: true }), {
       status: 200,
